@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sphinx Demo</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <style>
+    .hidden {
+      display: none;
+    }
+
+    .large {
+      font-size: 50px;
+    }
+
+    .show {
+      display: block;
+    }
+  </style>
+</head>
+<body style="text-align: center">
+  <span class="large hidden" id="up">&#8593;</span>
+  <div class="frame" id="0">Frame one!</div>
+  <div class="frame hidden" id="1">Frame two!</div>
+  <span class="large hidden" id="down">&#8595;</span>
+  <script>
+    var frames = document.getElementsByClassName('frame');
+    var currentFrame = 0;
+
+    $(document).ready(function () {
+      if (frames.length > 0) {
+        $('#down').removeClass('hidden');
+      }
+    });
+
+    $('#down').click(function () {
+      var elem = $(this);
+
+      if (currentFrame === 0) {
+        $('#up').css('display', 'block');
+      }
+    });
+  </script>
+</body>
+</html>

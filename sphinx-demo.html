@@ -15,13 +15,30 @@
     .show {
       display: block;
     }
+
+    .top-arrow {
+      position: fixed;
+      top: 10px;
+    }
+
+    .bottom-arrow {
+      position: fixed;
+      top: 500px;
+    }
+
+    .frame {
+      position: fixed;
+      height: 500px;
+      width: 100%;
+      top: 100px;
+    }
   </style>
 </head>
 <body style="text-align: center">
-  <span class="large hidden" id="up">&#8593;</span>
+  <span class="large hidden top-arrow" id="up">&#8593;</span>
   <div class="frame" id="0">Frame one!</div>
   <div class="frame hidden" id="1">Frame two!</div>
-  <span class="large hidden" id="down">&#8595;</span>
+  <span class="large hidden bottom-arrow" id="down">&#8595;</span>
   <script>
     var frames = document.getElementsByClassName('frame');
     var currentFrame = 0;
@@ -32,11 +49,15 @@
       }
     });
 
+    // Trigger when user clicks the down arrow
     $('#down').click(function () {
       var elem = $(this);
+      if (currentFrame + 1 <= frames.length) {
+        if (currentFrame === 0) {
+          $('#up').removeClass('hidden');
+        }
 
-      if (currentFrame === 0) {
-        $('#up').css('display', 'block');
+        var nextFrame = currentFrame + 1;
       }
     });
   </script>

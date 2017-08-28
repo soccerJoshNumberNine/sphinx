@@ -57,23 +57,15 @@
     }
 
     $('#page').scroll(function () {
-      var scroll = Math.floor(getScroll() / 100) * 100;
-      var currentPhade = document.getElementsByClassName('phade')[scroll];
+      var scroll = Math.floor(getScroll() / 500) * 500;
+      var currentPhade = document.getElementsByClassName('phade')[scroll / 500];
       if ($(currentPhade).css('display') === 'none') {
         $(currentPhade).css('display', 'block');
+        $('#page').scrollTop(scroll, 0);
         $(currentPhade).animate({opacity: '1'}, 3000);
       }
+      $('#display').html(scroll + '<br/>' + currentPhade);
     });
-
-    /*$(document).ready(function () {
-      $('.phade').css('display', 'block');
-      $('.phade').animate({opacity: '1'}, 3000);
-      //$('.phade').animate('opacity', '1');
-    });*/
-
-    /*$('#page').click(function () {
-      alert($('#page').scrollTop());
-    });*/
   </script>
 </body>
 </html>

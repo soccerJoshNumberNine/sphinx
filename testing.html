@@ -37,6 +37,8 @@
     </div>
   </div>
   <script>
+    var phadesTriggered = 0;
+
     $(document).ready(function () {
       $('.frame').css({height: new windowDimensions().height + 'px'});
       $('.container').css({height: new windowDimensions().height + 1 + 'px'});
@@ -64,6 +66,11 @@
         $(currentPhade).css('display', 'block');
         $('#page').scrollTop(scroll, 0);
         $(currentPhade).animate({opacity: '1'}, 3000);
+        phadesTriggered++;
+        
+        if (phadesTriggered >= document.getElementsByClassName('phade').length) {
+          $('.spacer').remove();
+        }
       }
     });
   </script>

@@ -31,7 +31,7 @@
 <body>
   <div class="frame" id="page">
     <div class="container">
-      <div class="phade w3-red" style="height: 500px" id="wow">wow</div>
+      <div class="phade w3-red" style="height: 500px" id="wow"></div>
       <div class="phade w3-blue" style="height: 500px"></div>
       <div class="spacer"></div>
     </div>
@@ -42,6 +42,7 @@
     $(document).ready(function () {
       $('.frame').css({height: new windowDimensions().height + 'px'});
       $('.container').css({height: new windowDimensions().height + 1 + 'px'});
+      $('.phade').css({height: new windowDimensions().height});
       var phades = document.getElementsByClassName('phade');
     });
 

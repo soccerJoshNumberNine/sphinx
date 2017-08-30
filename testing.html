@@ -23,27 +23,24 @@
       display: none;
     }
     
-    .spacer {
-      height: 501px;
-    }
+    .spacer { /* This space has been left intentionally blank */ }
   </style>
 </head>
 <body>
   <div class="frame" id="page">
     <div class="container">
-      <div class="phade w3-red" style="height: 500px" id="wow"></div>
-      <div class="phade w3-blue" style="height: 500px"></div>
+      <div class="phade w3-red"></div>
+      <div class="phade w3-blue"></div>
       <div class="spacer"></div>
     </div>
   </div>
   <script>
     var phadesTriggered = 0;
-
     $(document).ready(function () {
       $('.frame').css({height: new windowDimensions().height + 'px'});
       $('.container').css({height: new windowDimensions().height + 1 + 'px'});
+      $('.spacer').css({height: new windowDimensions().height + 1 + 'px'});
       $('.phade').css({height: new windowDimensions().height});
-      var phades = document.getElementsByClassName('phade');
     });
 
     function documentDimensions () {
@@ -61,8 +58,8 @@
     }
 
     $('#page').scroll(function () {
-      var scroll = Math.floor(getScroll() / 500) * 500;
-      var currentPhade = document.getElementsByClassName('phade')[scroll / 500];
+      var scroll = Math.floor(getScroll() / new windowDimensions().height) * new windowDimensions().height;
+      var currentPhade = document.getElementsByClassName('phade')[scroll / new windowDimensions().height];
       if ($(currentPhade).css('display') === 'none') {
         $(currentPhade).css('display', 'block');
         $('#page').scrollTop(scroll, 0);
@@ -70,7 +67,7 @@
         phadesTriggered++;
         
         if (phadesTriggered >= document.getElementsByClassName('phade').length) {
-          $('.spacer').remove();
+          $('.spacer').css('display', 'none');
         }
       }
     });

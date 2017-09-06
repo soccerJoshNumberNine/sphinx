@@ -24,15 +24,27 @@
     }
     
     .spacer { /* This space has been left intentionally blank */ }
+    
+    .halo {
+      background-image: url('https://content.halocdn.com/media/Default/games/halo-5-guardians/page/h5-guardians-facebook-1200x630-ba103624b3f34af79fe8cb2d340dce3f.jpg');
+    }
+    
+    .roblox {
+      background-image: url('https://images.rbxcdn.com/d66ae37d46e00a1ecacfe9531986690a.jpg');
+    }
+    
+    .fixed {
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
   </style>
 </head>
 <body>
   <div class="frame" id="page">
-    <div class="container">
-      <div class="phade w3-red"></div>
-      <div class="phade w3-blue"></div>
-      <div class="spacer"></div>
-    </div>
+    <div class="phade halo">qq</div>
+    <div class="phade roblox">ww</div>
+    <div class="spacer"></div>
   </div>
   <script>
     var phadesTriggered = 0;
@@ -40,7 +52,7 @@
       $('.frame').css({height: new windowDimensions().height + 'px'});
       $('.container').css({height: new windowDimensions().height + 1 + 'px'});
       $('.spacer').css({height: new windowDimensions().height + 1 + 'px'});
-      $('.phade').css({height: new windowDimensions().height});
+      $('.phade').css({height: new windowDimensions().height + 'px'});
     });
 
     function documentDimensions () {
@@ -60,11 +72,16 @@
     $('#page').scroll(function () {
       var scroll = Math.floor(getScroll() / new windowDimensions().height) * new windowDimensions().height;
       var currentPhade = document.getElementsByClassName('phade')[scroll / new windowDimensions().height];
+      var previousPhade = document.getElementsByClassName('phade')[phadesTriggered];
       if ($(currentPhade).css('display') === 'none') {
+        $(previousPhade).removeClass('fixed');
         $(currentPhade).css('display', 'block');
         $('#page').scrollTop(scroll, 0);
         $(currentPhade).animate({opacity: '1'}, 3000);
+        $(currentPhade).addClass('fixed');
+        $('.spacer').css({height: new windowDimensions().height + new windowDimensions().height + 'px'});
         phadesTriggered++;
+        //alert($(previousPhade).text());
         
         if (phadesTriggered >= document.getElementsByClassName('phade').length) {
           $('.spacer').css('display', 'none');

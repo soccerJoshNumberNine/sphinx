@@ -38,10 +38,16 @@
       top: 0;
       width: 100%;
     }
+    
+    .stage {
+      position: fixed;
+      top: 0;
+    }
   </style>
 </head>
 <body>
   <div class="frame" id="page">
+    <div class="stage" id="stage"></div>
     <div class="phade halo">qq</div>
     <div class="phade roblox">ww</div>
     <div class="spacer"></div>
@@ -54,21 +60,17 @@
       $('.spacer').css({height: new windowDimensions().height + 1 + 'px'});
       $('.phade').css({height: new windowDimensions().height + 'px'});
     });
-
     function documentDimensions () {
       this.height = $(document).height();
       this.width = $(document).width();
     }
-
     function windowDimensions () {
       this.height = $(window).height();
       this.width = $(window).width();
     }
-
     function getScroll () {
       return $('#page').scrollTop();
     }
-
     $('#page').scroll(function () {
       var scroll = Math.floor(getScroll() / new windowDimensions().height) * new windowDimensions().height;
       var currentPhade = document.getElementsByClassName('phade')[scroll / new windowDimensions().height];

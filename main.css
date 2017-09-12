@@ -1,13 +1,13 @@
-    .frame {
-      width: 100%;
-      height: 100px;
-      overflow: auto;
-      padding: 0 5px 0 5px;
-    }
+.frame {
+    width: 100%;
+    height: 100px;
+    overflow: auto;
+    padding: 5px 5px 5px 5px;
+}
     
-    .phade {
-      opacity: 0;
-      display: none;
-    }
+.phade {
+    opacity: 0;
+    display: none;
+}
     
-    .spacer { /* This space has been left intentionally blank */ }
+.spacer { /* This space has been left intentionally blank */ }

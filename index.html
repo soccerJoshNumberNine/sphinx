@@ -32,12 +32,6 @@
     .roblox {
       background-image: url('https://images.rbxcdn.com/d66ae37d46e00a1ecacfe9531986690a.jpg');
     }
-    
-    .fixed {
-      position: fixed;
-      top: 10px0;
-      width: 100%;
-    }
   </style>
 </head>
 <body>
@@ -55,31 +49,31 @@
       $('.spacer').css({height: new windowDimensions().height + 1 + 'px'});
       $('.phade').css({height: new windowDimensions().height + 'px'});
     });
+
     function documentDimensions () {
       this.height = $(document).height();
       this.width = $(document).width();
     }
+
     function windowDimensions () {
       this.height = $(window).height();
       this.width = $(window).width();
     }
+
     function getScroll () {
       return $('#page').scrollTop();
     }
+
     $('#page').scroll(function () {
       var scroll = Math.floor(getScroll() / new windowDimensions().height) * new windowDimensions().height;
       var scrollRaw = $('#page').scrollTop();
       var currentPhade = document.getElementsByClassName('phade')[scroll / new windowDimensions().height];
-      //var previousPhade = document.getElementsByClassName('phade')[phadesTriggered];
-      //alert('wow');
+      var previousPhade = document.getElementsByClassName('phade')[phadesTriggered - 1];
       $(currentPhade).offset({top: scrollRaw / new windowDimensions().height});
-      //alert('yay');
       if ($(currentPhade).css('display') === 'none') {
-        //$(previousPhade).removeClass('fixed');
         $(currentPhade).css('display', 'block');
         $('#page').scrollTop(scroll, 0);
         $(currentPhade).animate({opacity: '1'}, 3000);
-        //$(currentPhade).addClass('fixed');
         $('.spacer').css({height: new windowDimensions().height + new windowDimensions().height + 'px'});
         phadesTriggered++;
         

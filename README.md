@@ -1,12 +1,14 @@
 # sphinx
 
+## About
+
 Made for a friend, sphinx allows the website maker to have a scroll effect on images that can only be described as "the Star Wars intro, but towards you."
 
 The system could be described as a front-end API, similar to jQuery. It uses jQuery, but if you have a pure-JavaScript way to do it, by all means fork the project, make it, and make a pull request!
 
 ### [License](https://github.com/soccerJoshNumberNine/sphinx/License.md)
 ___
-### Usage
+## Usage
 
 To use sphinx in your own project, put the following code in the `head` section of your HTML/PHP document. Check out [this template](https://github.com/soccerJoshNumberNine/sphinx/blob/master/template.md) for an idea of how it works.
 

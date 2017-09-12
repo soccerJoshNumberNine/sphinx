@@ -8,7 +8,7 @@ The system could be described as a front-end API, similar to jQuery. It uses jQu
 ___
 ### Usage
 
-To use sphinx in your own project, put the following code in the `head` section of your HTML/PHP document.
+To use sphinx in your own project, put the following code in the `head` section of your HTML/PHP document. Check out [this template](https://github.com/soccerJoshNumberNine/sphinx/blob/master/template.md) for an idea of how it works.
 
 ```
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

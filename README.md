@@ -10,14 +10,14 @@ ___
 
 To use sphinx in your own project, put the following code in the `head` section of your HTML/PHP document. Check out [this template](https://github.com/soccerJoshNumberNine/sphinx/blob/master/template.md) for an idea of how it works.
 
-```
+```html
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://soccerJoshNumberNine.github.io/sphinx/main.css"/>
 ```
 
 Attach the following code to the bottom of the `body` section of your document.
 
-```
+```html
 <script src="https://soccerJoshNumberNine.github.io/sphinx/sphinx.js"></script>
 ```
 

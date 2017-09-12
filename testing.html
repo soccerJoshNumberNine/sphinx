@@ -35,13 +35,8 @@
     
     .fixed {
       position: fixed;
-      top: 0;
+      top: 10px0;
       width: 100%;
-    }
-    
-    .stage {
-      position: fixed;
-      top: 0;
     }
   </style>
 </head>
@@ -73,17 +68,20 @@
     }
     $('#page').scroll(function () {
       var scroll = Math.floor(getScroll() / new windowDimensions().height) * new windowDimensions().height;
+      var scrollRaw = $('#page').scrollTop();
       var currentPhade = document.getElementsByClassName('phade')[scroll / new windowDimensions().height];
-      var previousPhade = document.getElementsByClassName('phade')[phadesTriggered];
+      //var previousPhade = document.getElementsByClassName('phade')[phadesTriggered];
+      //alert('wow');
+      $(currentPhade).offset({top: scrollRaw / new windowDimensions().height});
+      //alert('yay');
       if ($(currentPhade).css('display') === 'none') {
-        $(previousPhade).removeClass('fixed');
+        //$(previousPhade).removeClass('fixed');
         $(currentPhade).css('display', 'block');
         $('#page').scrollTop(scroll, 0);
         $(currentPhade).animate({opacity: '1'}, 3000);
-        $(currentPhade).addClass('fixed');
+        //$(currentPhade).addClass('fixed');
         $('.spacer').css({height: new windowDimensions().height + new windowDimensions().height + 'px'});
         phadesTriggered++;
-        //alert($(previousPhade).text());
         
         if (phadesTriggered >= document.getElementsByClassName('phade').length) {
           $('.spacer').css('display', 'none');
